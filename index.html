@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Market Pulse — Live Dashboard</title>
+<meta name="theme-color" content="#0B0E11" />
+<link rel="manifest" href="manifest.json" />
+<link rel="icon" href="icons/icon-192.png" />
+<link rel="apple-touch-icon" href="icons/icon-192.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <svg width="22" height="22" viewBox="0 0 22 22" class="brand-glyph">
+      <line x1="11" y1="2" x2="11" y2="20" stroke="#E8A23D" stroke-width="2"/>
+      <rect x="6" y="7" width="10" height="8" fill="#2FBF71" id="brandCandle"/>
+    </svg>
+    <span>Market Pulse</span>
+  </div>
+
+  <div class="symbol-form">
+    <input id="symbolInput" type="text" placeholder="SYMBOL (e.g. RELIANCE)" autocomplete="off" spellcheck="false" />
+    <select id="exchSelect">
+      <option value="N_C">NSE Eq</option>
+      <option value="N_D">NSE FO</option>
+      <option value="B_C">BSE Eq</option>
+    </select>
+    <button id="loadBtn">Load</button>
+  </div>
+
+  <div class="conn-status">
+    <span class="dot" id="connDot"></span>
+    <span id="connText">connecting…</span>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero" id="hero">
+    <div class="hero-left">
+      <div class="hero-symbol" id="heroSymbol">—</div>
+      <div class="hero-ltp-row">
+        <span class="hero-ltp" id="heroLtp">0.00</span>
+        <span class="hero-change" id="heroChange">0.00 (0.00%)</span>
+      </div>
+      <div class="hero-meta">
+        <span id="heroTime">--:--:--</span> · <span id="heroExch">—</span>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="ha-candle-box" id="haCandleBox" title="Latest Heikin-Ashi candle">
+        <svg viewBox="0 0 60 90" width="60" height="90">
+          <line id="haWick" x1="30" y1="5" x2="30" y2="85" stroke="#8A93A1" stroke-width="2"/>
+          <rect id="haBody" x="14" y="30" width="32" height="30" fill="#2FBF71" rx="2"/>
+        </svg>
+        <span class="ha-label">Heikin-Ashi</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="grid" id="metricsGrid">
+    <!-- cards injected by app.js -->
+  </section>
+
+  <section class="crossover-strip" id="crossoverStrip">
+    <div class="cross-card" data-key="ma">
+      <div class="cross-title">7 / 20 MA Crossover <span class="hint">(price)</span></div>
+      <div class="cross-value" id="maCrossValue">—</div>
+    </div>
+    <div class="cross-card" data-key="oi">
+      <div class="cross-title">7 / 20 MA Crossover <span class="hint">(Open Interest)</span></div>
+      <div class="cross-value" id="oiCrossValue">—</div>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <span id="footNote">Proxy: not configured</span>
+  </footer>
+
+</main>
+
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
