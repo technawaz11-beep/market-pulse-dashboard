@@ -1,0 +1,19 @@
+{
+  "name": "market-pulse-proxy",
+  "version": "1.0.0",
+  "description": "Backend proxy that holds 5paisa secrets and exposes safe REST endpoints for the Market Pulse PWA.",
+  "main": "index.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js"
+  },
+  "dependencies": {
+    "5paisajs": "^2.0.5",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "node-fetch": "^2.7.0",
+    "otplib": "^12.0.1"
+  }
+}
