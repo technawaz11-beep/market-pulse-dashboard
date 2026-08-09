@@ -9,7 +9,7 @@
     "dev": "node --watch index.js"
   },
   "dependencies": {
-    "5paisajs": "^0.0.25",
+    "5paisajs": "github:OpenApi-5p/5paisa-js",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
